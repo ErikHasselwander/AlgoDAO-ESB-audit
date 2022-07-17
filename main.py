@@ -1,4 +1,3 @@
-from cgitb import reset
 from algosdk.v2client.indexer import IndexerClient
 from pprint import pprint
 from time import sleep
