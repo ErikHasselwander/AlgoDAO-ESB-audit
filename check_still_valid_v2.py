@@ -39,8 +39,8 @@ def get_account_txs(indexer: IndexerClient, account) -> list:
     return res
 
 def main():
-    """Run this file with the current ESB-data in a csv namned 'ESB - fixed.csv'. This generates a new file 'kicked.csv' with all the accounts
-    to be kicked from the ESB program. If ran consequtive times new accounts will be added to 'kicked.csv', with no duplicates."""
+    """Run this file with the current ESB-data in a csv namned 'ESB - fixed.csv'. This generates a new file 'kickedv2.csv' with all the accounts
+    to be kicked from the ESB program. If ran consequtive times new accounts will be added to 'kickedv2.csv', with no duplicates."""
     
     accs = load_csv('ESB - fixed.csv')
     bad_accounts = {}
@@ -49,9 +49,6 @@ def main():
         if acc in kicked_accs:
             continue
         txs = get_account_txs(indexer_client, acc)
-        if acc == "P2SN4WNOJ3BDEXKFSENICQAKCLVKXWEZLKSUSAMTQM4ETPQG7UTVA6PLIE":
-            print(txs)
-            input("asdf")
         for tx in txs:
             ap = "application-transaction"
             dt = "local-state-delta"
